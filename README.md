@@ -10,15 +10,15 @@ Fuente: https://es.wikipedia.org/wiki/Tres_en_línea
 
 ---
 ## Puntos de interés
-Los puntos mas destacados de la aplicación son:
+Los puntos más destacados de la aplicación son estos:
 
 ### Motor gráfico
-El juego no tiene motor gráfico, la intención es incluir el algoritmo de Minamax por lo que he omitido un interfaz gráfico
+El juego no tiene motor gráfico, la intención es incluir el algoritmo de Minamax por lo que he omitido un interfaz gráfico. Más adelante se implantara para dejarlo completo
 
 ### Librerías
 - El archivo requirements.txt esta creado para facilitar la instalación de las librerías
 - Pese a que no hay motor gráfico se necesitan dos librerías para hacer un poco mas atractivo el juego. Estas son:
-  - tabulate: 
+  - tabulate:
     - https://pypi.org/project/tabulate/
     - Se usa para mostrar el tablero de juego
   - colorama
@@ -32,20 +32,19 @@ El juego no tiene motor gráfico, la intención es incluir el algoritmo de Minam
   - logging
     - Integrada en Python
     - Logging proporciona un conjunto de funciones convenientes para un uso sencillo de registro
-    - Aunque esta implementado desde el principio su uso principal va a ser para el desarrollo del Algoritmo MaxMin 
+    - Aunque esta implementado desde el principio su uso principal va a ser para el desarrollo del Algoritmo MaxMin
 
 ### Creaciones de excepciones propias: try / except
-No es que sean errores de programación, son errores lógicos que se pueden dar a la hora de solicitar la casilla
-Estos son:
+No es que sean errores de programación, son errores lógicos que se pueden dar a la hora de solicitar la casilla. Estos son:
 - Número de casilla mayor que 9
 - Número de casilla menor que 0
-- No se introduce un número o, por último
+- No se introduce un número, y, por último
 - La casilla esta ocupada
 
 
 ---
 ## Próximas versiones
-Las implementación previstas son:
+Las implementaciones previstas son:
 - Incluir una Inteligencia artificial, concretamente el Algoritmo MaxMin para que juegue un humano contra la máquina
 - Implementar que se empiece a jugar entre los dos jugadores de forma aleatoria
 - Usar una interfaz gráfica
@@ -60,7 +59,7 @@ Las implementación previstas son:
 ---
 ## Manifiesto de los archivos del repositorio
 - README.md
-  - El archivo que estas leyendo.
+  - El archivo que estas leyendo
 - requirements.txt
     - Archivo con las librerías utilizadas
 
@@ -72,8 +71,8 @@ El mundo de la IA es muy interesante. Y esta es una buena forma de empezar a apr
 
 ---
 ## Créditos y agradecimientos
-- A toda la comunidad web que me ha permitido ir ampliando mi formación.
-- A mi familia por su infinita paciencia.
+- A toda la comunidad web que me ha permitido ir ampliando mi formación
+- A mi familia por su infinita paciencia
 
 ---
 ## Licencias y derechos de autor

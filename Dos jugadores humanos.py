@@ -81,7 +81,7 @@ def ganador(nombre: str):
     """Genera la salida del ganador por el terminal
 
     Args:
-        nombre (str): nombre dle ganador
+        nombre (str): nombre del ganador
     """
     mensaje = f'*  {nombre} has ganado. ¡¡¡Enhorabuena!!!  *'
     print()
@@ -260,3 +260,8 @@ Para colocar la X o O solo es necerario indicar la posición del 1 al 9 dentro d
                               hay_ganador = True
                               ganador(jugador_activo['nombre'])
                             break
+
+        print()
+        print('Fin del juego')
+        print()
+        print()
