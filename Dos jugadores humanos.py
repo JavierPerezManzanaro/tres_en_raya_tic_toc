@@ -92,38 +92,6 @@ def ganador(nombre: str):
     print()
 
 
-def entrada_casilla(simbolo: str):
-    simbolo = x_color if simbolo == 'X' else o_color
-    menu_paso = True
-    while menu_paso == True:
-        try:
-            casilla = int(input(f'- {jugador_activo["nombre"]} ¿En que casilla quieres poner tu ficha \'{simbolo}\'? '))
-            if casilla <= 0:
-                raise casilla_menor_de_1('  No puede ser 0 ni negativo')
-            if casilla > 9:
-                raise casilla_mayor_de_9('  Tiene que ser un número menor que 9')
-            if casilla in casillas_ocupadas:
-                raise casilla_ocupada('  Esa casilla ya esta ocupada')
-        except ValueError:
-            print('  Tienes que introducir un número')
-        except casilla_menor_de_1 as e:
-            print(e.mensaje)
-        except casilla_mayor_de_9 as e:
-            print(e.mensaje)
-        except casilla_ocupada as e:
-            print(e.mensaje)
-        else:
-            logging.info('La casilla es correcta, seguimos con la app')
-            print()
-            menu_paso = False
-            casillas_ocupadas.append(casilla)
-            if jugador_activo["simbolo"] == 'X':
-                casillas_X.append(casilla)
-            else:
-                casillas_O.append(casilla)
-        return casillas_X, casillas_O
-
-
 # * Errores predefinidos para la entrada
 class casilla_menor_de_1(Exception):
     def __init__(self, mensaje):
@@ -186,7 +154,6 @@ Para colocar la X o O solo es necerario indicar la posición del 1 al 9 dentro d
         print()
 
         # * Preguntamos por la casilla y analizamos la entrada
-        #casillas_X, casillas_O = entrada_casilla(jugador_activo["simbolo"])
         simbolo = x_color if jugador_activo["simbolo"] == 'X' else o_color
         menu_paso = True
         while menu_paso == True:
@@ -212,10 +179,6 @@ Para colocar la X o O solo es necerario indicar la posición del 1 al 9 dentro d
                 menu_paso = False
                 casillas_ocupadas.append(casilla)
                 casillas_X.append(casilla) if jugador_activo["simbolo"] == 'X' else casillas_O.append(casilla)
-                # if jugador_activo["simbolo"] == 'X':
-                #     casillas_X.append(casilla)
-                # else:
-                #     casillas_O.append(casilla)
 
         logging.info('La app sigue el proceso, ya fuera de la entrada de datos')
 
@@ -233,12 +196,12 @@ Para colocar la X o O solo es necerario indicar la posición del 1 al 9 dentro d
 
 
         # * Estudiamos si hay ganador
-        # * 1) Asignamos las jugadas de cualquiera de los dos a la lista "juganas" que es la que vamos a estudiar
+        # * 1) Asignamos las jugadas de cualquiera de los dos participantes a la lista "jugadas" que es la que vamos a estudiar
         if jugador_activo["simbolo"] == 'X':
             jugadas = casillas_X
         else:
             jugadas = casillas_O
-        # * 2) si el jugador ha dado 3 posiciones
+        # * 2) si el número de rondas es igual a 3
         jugadas.sort()
         if len(jugadas) == 3:
             for cadena_ganadora in cadenas_ganadoras:
@@ -246,7 +209,7 @@ Para colocar la X o O solo es necerario indicar la posición del 1 al 9 dentro d
                 if cadena_ganadora == jugadas:
                     hay_ganador = True
                     ganador(jugador_activo['nombre'])
-        # * 3) Y ahora si el jugador ha puesto 4 o más posiciones
+        # * 3) Y ahora si el jugador ha jugado 4 o más rondas
         # * Vamos analizando cada una de las posiciones por separado
         if len(jugadas) >= 4:
             for cadena_ganadora in cadenas_ganadoras:
@@ -261,7 +224,7 @@ Para colocar la X o O solo es necerario indicar la posición del 1 al 9 dentro d
                               ganador(jugador_activo['nombre'])
                             break
 
-        print()
-        print('Fin del juego')
-        print()
-        print()
+    print()
+    print('Fin del juego')
+    print()
+    print()

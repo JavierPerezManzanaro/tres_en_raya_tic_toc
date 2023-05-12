@@ -50,6 +50,8 @@ Las implementaciones previstas son:
 
 
 ## Historial de versiones
+### 1.1
+- Mejoras menores
 ### 1.0
 - Versión base
 
